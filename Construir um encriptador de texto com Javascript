@@ -1,0 +1,22 @@
+function decoder(encoded){
+    let decoded = "";
+    let alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
+    let inverseAlphabet = alphabet.slice().reverse();
+    let dictionary = {};
+
+    for(let i = 0; i < alphabet.length;i++){
+        dictionary[alphabet[i]] = inverseAlphabet[i];
+    }
+
+    for (let i = 0; i < encoded.length; i++) {
+        let char = encoded.charAt(i);
+        
+        if(dictionary.hasOwnProperty(char)){
+            decoded += dictionary[char];
+        }else{
+            decoded += char;
+        }
+    }
+
+    return decoded;
+}
